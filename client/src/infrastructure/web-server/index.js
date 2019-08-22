@@ -9,4 +9,11 @@ const app = new Koa();
 app.use(KoaLogger());
 app.use(routes);
 
-app.listen(4000);
+async function listen(port) {
+  app.listen(port);
+}
+
+module.exports = {
+  app,
+  listen,
+};

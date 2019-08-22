@@ -2,19 +2,24 @@
 
 const RedisSMQ = require('rsmq');
 
+const {
+  REDIS_HOST,
+  REDIS_PORT,
+  REDIS_NAMESPACE,
+} = process.env;
+
 const rsmq = new RedisSMQ({
-  host: '127.0.0.1',
-  port: 6379,
-  ns: 'rsmq',
+  host: REDIS_HOST,
+  port: REDIS_PORT,
+  ns: REDIS_NAMESPACE,
 });
+
+const QUEUES = ['queueA', 'queueB'];
 
 class QueueBusiness {
   static async init() {
-    const myQueue = await rsmq.createQueueAsync({
-      qname: 'myQueue',
-    });
-
-    return myQueue;
+    const queues = QUEUES.map(async q => rsmq.createQueueAsync({ qname: q }));
+    return Promise.all(queues);
   }
 
   static async push() {
