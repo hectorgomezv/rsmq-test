@@ -1,5 +1,6 @@
 'use strict';
 
+require('dotenv').config();
 const { QueueBusiness } = require('./src/business');
 const { webServer } = require('./src/infrastructure');
 

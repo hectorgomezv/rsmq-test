@@ -24,7 +24,7 @@
       "request": "launch",
       "name": "Debug client",
       "cwd": "${workspaceFolder}/client",
-      "program": "${workspaceFolder}/client/src/index.js",
+      "program": "${workspaceFolder}/client/server.js",
       "envFile": "${workspaceFolder}/client/.env"
     },
     {
