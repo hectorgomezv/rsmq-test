@@ -7,12 +7,39 @@ services:
     volumes:
       - data:/data
 
-  publisher1:
+  publisher-1:
     build: ./publisher
     env_file:
       - ./publisher/docker.env
     ports:
       - "4000:4000"
+    depends_on:
+      - redis
+
+  subscriber-1:
+    build: ./subscriber
+    env_file:
+      - ./subscriber/docker.env
+    environment:
+      - SUBSCRIBER_NAME=subscriber-1
+    depends_on:
+      - redis
+
+  subscriber-2:
+    build: ./subscriber
+    env_file:
+      - ./subscriber/docker.env
+    environment:
+      - SUBSCRIBER_NAME=subscriber-2
+    depends_on:
+      - redis
+
+  subscriber-3:
+    build: ./subscriber
+    env_file:
+      - ./subscriber/docker.env
+    environment:
+      - SUBSCRIBER_NAME=subscriber-3
     depends_on:
       - redis
 

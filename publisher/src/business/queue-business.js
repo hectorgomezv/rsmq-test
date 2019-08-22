@@ -30,10 +30,10 @@ class QueueBusiness {
     return logger.info('Queues are now active');
   }
 
-  static async push(queueIndex) {
+  static async push(queueName) {
     const message = `msg-${Date.now()}`;
     const activeQueues = await rsmq.listQueuesAsync();
-    const queue = activeQueues[queueIndex] || activeQueues[0];
+    const queue = activeQueues.find(q => q === queueName) || activeQueues[0];
     logger.info(`Pushing message ${message} to queue ${queue}`);
 
     return rsmq.sendMessageAsync({
