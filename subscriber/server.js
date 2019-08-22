@@ -21,11 +21,8 @@ const rsmq = new RedisSMQ({
 async function processMessages(qname) {
   const message = await rsmq.receiveMessageAsync({ qname });
   if (Object.entries(message).length !== 0) {
-    // do something useful with the message here :)
     logger.info(`Message received on ${qname}: ${JSON.stringify(message)}`);
-    await rsmq.deleteMessageAsync({ qname, id: message.id });
-
-    return logger.info(`Message with id ${message.id} deleted.`);
+    return rsmq.deleteMessageAsync({ qname, id: message.id });
   }
 
   return false;

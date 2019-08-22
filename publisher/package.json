@@ -12,7 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.1.0",
+    "funnies": "^2.0.0",
     "koa": "^2.8.1",
+    "koa-bodyparser": "^4.2.1",
     "koa-logger": "^3.2.1",
     "koa-router": "^7.4.0",
     "pino": "^5.13.2",

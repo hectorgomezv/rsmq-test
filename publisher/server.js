@@ -8,5 +8,6 @@ const { PORT } = process.env;
 
 (async function initApp() {
   await QueueBusiness.init();
+  await QueueBusiness.sendRandomMessages();
   await webServer.listen(PORT);
 }());
