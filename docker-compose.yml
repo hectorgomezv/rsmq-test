@@ -7,8 +7,10 @@ services:
     volumes:
       - data:/data
 
-  client1:
-    build: ./client
+  publisher1:
+    build: ./publisher
+    env_file:
+      - ./publisher/docker.env
     ports:
       - "4000:4000"
     depends_on:

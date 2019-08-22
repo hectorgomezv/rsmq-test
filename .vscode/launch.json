@@ -8,8 +8,8 @@
       "type": "node",
       "request": "launch",
       "name": "Debug current test file",
-      "cwd": "${workspaceFolder}/client",
-      "program": "${workspaceFolder}/client/node_modules/.bin/jest",
+      "cwd": "${workspaceFolder}/publisher",
+      "program": "${workspaceFolder}/publisher/node_modules/.bin/jest",
       "args": [
         "${relativeFile}",
         "--runInBand",
@@ -22,17 +22,17 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug client",
-      "cwd": "${workspaceFolder}/client",
-      "program": "${workspaceFolder}/client/server.js",
-      "envFile": "${workspaceFolder}/client/.env"
+      "name": "Debug publisher",
+      "cwd": "${workspaceFolder}/publisher",
+      "program": "${workspaceFolder}/publisher/server.js",
+      "envFile": "${workspaceFolder}/publisher/.env"
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug client tests",
-      "cwd": "${workspaceFolder}/client",
-      "program": "${workspaceFolder}/client/node_modules/.bin/jest",
+      "name": "Debug publisher tests",
+      "cwd": "${workspaceFolder}/publisher",
+      "program": "${workspaceFolder}/publisher/node_modules/.bin/jest",
       "args": [
         "--runInBand",
         "--forceExit"
