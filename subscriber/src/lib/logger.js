@@ -1,7 +1,5 @@
-'use strict';
-
-const Pino = require('pino');
+import * as Pino from "pino";
 
 const logger = Pino();
 
-module.exports = logger;
+export default logger;
