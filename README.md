@@ -1,5 +1,5 @@
-## RSMQ (Redis Simple Message Queue) demo project
-The goal here is to illustrate a basic setup where Redis is used as a message queue to (potentially) communicate microservice instances in a event-driven architecture. Polling is used in the sake of simplicity, but this example could be easily converted to a pub/sub schema.
+## RSMQ (Redis Simple Message Queue) probe of concept project
+The goal here is to illustrate a basic setup where Redis is used as a message queue to (potentially) communicate micro-service instances in a event-driven architecture. Polling is used in the sake of simplicity, but this example could be easily converted to a pub/sub schema.
 
 #### Prerequisites
 * Docker
@@ -7,7 +7,7 @@ The goal here is to illustrate a basic setup where Redis is used as a message qu
 
 #### Setup
 * git clone
-* cd rsmq-test
+* cd rsmq-poc
 * docker-compose up --build
 
 #### Playground
@@ -34,21 +34,21 @@ Your message should be putted in the queueB, and listened by one of the subscrib
 Plus, you can play with the containers. By example, you can stop one subscriber and see it's not receiving messages anymore.
 
 ```
-docker stop rsmq-test_subscriber-1_1
+docker stop rsmq-poc_subscriber-1_1
 ```
 
 Or you can stop them all:
 
 ```
-docker stop rsmq-test_subscriber-1_1
-docker stop rsmq-test_subscriber-2_1
-docker stop rsmq-test_subscriber-3_1
+docker stop rsmq-poc_subscriber-1_1
+docker stop rsmq-poc_subscriber-2_1
+docker stop rsmq-poc_subscriber-3_1
 ```
 
 And see that the messages continue being sent by the publisher container, but no one is hearing them. And, when a subscriber comes up again, he catches all the messages!
 
 ```
-docker start rsmq-test_subscriber-3_1
+docker start rsmq-poc_subscriber-3_1
 ```
 
 And so on... you can play with it for a while.
